@@ -8,7 +8,7 @@ import jakarta.persistence.GenerationType;
 import jakarta.persistence.Id;
 import jakarta.persistence.OneToMany;
 
-@Entity
+@Entity(name = "times")
 public class Time {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
