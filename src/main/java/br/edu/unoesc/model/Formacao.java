@@ -1,5 +1,6 @@
 package br.edu.unoesc.model;
 
+import jakarta.persistence.Column;
 import jakarta.persistence.Entity;
 import jakarta.persistence.GeneratedValue;
 import jakarta.persistence.GenerationType;
@@ -7,19 +8,23 @@ import jakarta.persistence.Id;
 import jakarta.persistence.JoinColumn;
 import jakarta.persistence.ManyToOne;
 
-@Entity
+@Entity(name = "formacoes")
 public class Formacao {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Integer id;
 
+    @Column(name = "nome_curso")
     private String nomeCurso;
+    @Column(name = "nivel_curso")
     private String nivelCurso;
+    @Column(name = "data_conclusao")
     private Integer dataConclusao;
+    @Column(name = "nomeInstituição")
     private String nomeInstituicao;
 
     @ManyToOne
-    @JoinColumn(name = "pessoaId", nullable = false)
+    @JoinColumn(name = "pessoa_Id", nullable = false)
     private Pessoa pessoa;
 
     public Formacao() {

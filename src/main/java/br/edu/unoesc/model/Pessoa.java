@@ -25,7 +25,7 @@ public class Pessoa {
     private String email;
 
     @ManyToOne
-    @JoinColumn(name = "timeId", nullable = false)
+    @JoinColumn(name = "time_Id", nullable = false)
     private Time time;
 
     @OneToMany(mappedBy = "pessoa")
