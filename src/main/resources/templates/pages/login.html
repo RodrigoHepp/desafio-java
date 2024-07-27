@@ -7,12 +7,9 @@
     <link rel="stylesheet" href="/css/pages/login.css">
   </head>
   <body>
-    <div th:if="${param.error}">Invalid username and password.</div>
-    <div th:if="${param.logout}">You have been logged out.</div>
-    <form th:action="@{/login}" method="post">
       <div class="login-container">
         <h1>Login</h1>
-        <div th:if="${param.error}" class="message">Usuário ou senha inválidos</div>
+
         <form th:action="@{/login}" method="post">
             <div>
                 <label> Nome do usuário: <input type="text" name="username" placeholder="Insira seu usuário" /> </label>
@@ -20,9 +17,9 @@
             <div>
                 <label> Senha: <input type="password" name="password" placeholder="Insira sua senha"/> </label>
             </div>
+            <div th:if="${param.error}" class="mensagem">Usuário ou senha inválidos</div>
             <div><input type="submit" value="Entrar" /></div>
         </form>
     </div>
-    </form>
   </body>
 </html>
