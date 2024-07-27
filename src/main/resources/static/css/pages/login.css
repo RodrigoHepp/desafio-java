@@ -1,0 +1,59 @@
+@import url("cores.css");
+
+body {
+    font-family: Arial, sans-serif;
+    background-color: var(--cor-de-fundo);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100vh;
+    margin: 0;
+}
+
+.login-container {
+    background-color: var(--branco);
+    padding: 2em;
+    border-radius: 10px;
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+    width: 300px;
+    text-align: center;
+}
+
+.login-container h1 {
+    margin-bottom: 1.5em;
+    color: var(--preto);
+}
+
+.login-container label {
+    display: block;
+    margin-bottom: 0.5em;
+    color: var(--cinza-escuro);
+}
+
+.login-container input[type="text"],
+.login-container input[type="password"] {
+    width: 100%;
+    padding: 0.5em;
+    margin-bottom: 1em;
+    border: 1px solid var(--cinza-margem);
+    border-radius: 5px;
+}
+
+.login-container input[type="submit"] {
+    background-color: var(--azul-escuro-padrao);
+    color: var(--branco);
+    border: none;
+    padding: 0.7em;
+    border-radius: 5px;
+    cursor: pointer;
+    width: 100%;
+}
+
+.login-container input[type="submit"]:hover {
+    background-color: var(--buttons-hover);
+}
+
+.mensagem {
+    color: var(--vermelho);
+    margin-bottom: 1em;
+}
