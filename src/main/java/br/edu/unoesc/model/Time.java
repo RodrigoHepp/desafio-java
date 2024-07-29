@@ -2,6 +2,8 @@ package br.edu.unoesc.model;
 
 import java.util.List;
 
+import com.fasterxml.jackson.annotation.JsonManagedReference;
+
 import jakarta.persistence.Entity;
 import jakarta.persistence.GeneratedValue;
 import jakarta.persistence.GenerationType;
@@ -21,6 +23,7 @@ public class Time {
     @NotBlank(message = "O setor é obrigatório")
     private String setor;
 
+    @JsonManagedReference
     @OneToMany(mappedBy = "time")
     private List<Pessoa> pessoas;
 

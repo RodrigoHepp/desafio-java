@@ -96,8 +96,6 @@ $("#editar").on('click', function () {
 
 $("#excluir").on('click', function () {
 
-    var csrfToken = $('meta[name="_csrf"]').attr('content');
-    var csrfHeader = $('meta[name="_csrf_header"]').attr('content');
     if (confirm("Tem certeza que deseja deletar o registro?")) {
         $.ajax({
             type: "DELETE",

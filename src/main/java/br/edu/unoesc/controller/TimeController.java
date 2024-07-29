@@ -18,7 +18,9 @@ import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
 
+import br.edu.unoesc.model.Pessoa;
 import br.edu.unoesc.model.Time;
+import br.edu.unoesc.service.PessoaService;
 import br.edu.unoesc.service.TimeService;
 
 @Controller
@@ -26,6 +28,8 @@ import br.edu.unoesc.service.TimeService;
 public class TimeController {
     @Autowired
     private TimeService timeService;
+        @Autowired
+    private PessoaService pessoaService;
 
     @GetMapping("/cadastro")
     public String cadastroDeTimes(@ModelAttribute("time") Time time) {
@@ -84,5 +88,15 @@ public class TimeController {
         } catch (Exception e) {
             return new ResponseEntity<>("Erro ao deletar o registro.", HttpStatus.INTERNAL_SERVER_ERROR);
         }
+    }
+
+    
+    @GetMapping("/consultaPorID/{id}")
+    public ResponseEntity<Map<String, Object>> listarTime(@PathVariable("id") Integer id) {
+        Pessoa pessoa = pessoaService.getPessoaById(id);
+        Time time = timeService.getTimeById(pessoa.getTime().getId());
+        Map<String, Object> response = new HashMap<>();
+        response.put("data", time);
+        return new ResponseEntity<>(response , HttpStatus.OK);
     }
 }
