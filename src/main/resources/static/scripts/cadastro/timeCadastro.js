@@ -1,15 +1,35 @@
 $('#timeForm').submit(function (event) {
     event.preventDefault();
-
     limparMensagens();
 
-    var formData = new FormData(this);
+    var id = $('#Id').val();
+  
+    if (id != "" && id != undefined && id != null) {
+        var confirmar = window.confirm('Deseja editar os dados?');
+        if (confirmar) {
+            cadastrarTime(this);
+        } else {
+            return;
+        }
+    } else {
+        cadastrarTime(this); 
+    }
+});
 
+$('#timeForm button[type="reset"]').click(function(event) {
+    limparMensagens();
+});
+
+function cadastrarTime(form) {
+    var formData = new FormData(form); 
     $.ajax({
-        url: $(this).attr('action'),
+        url: $(form).attr('action'), 
         type: 'POST',
         data: formData,
+        contentType: false,
+        processData: false,
         success: function (data) {
+            $('#Id').val(data.id);
             $("#response-api").removeClass('hide-message').addClass("show-message")
                 .append("<span class='message-success'> OK! Cadastro realizado com sucesso. </span>");
         },
@@ -27,7 +47,7 @@ $('#timeForm').submit(function (event) {
             }
         }
     });
-});
+}
 
 function limparMensagens() {
     $('#response-api').removeClass("show-message").addClass("hide-message").empty();
