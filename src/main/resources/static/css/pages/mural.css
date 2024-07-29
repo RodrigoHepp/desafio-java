@@ -1,0 +1,46 @@
+main {
+    height: auto;
+    padding-bottom: 20px;
+}
+
+.container-mural {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 16px;
+    padding: 20px;
+    justify-content: space-between;
+    box-sizing: border-box;
+    align-content: flex-start;
+    width: 80%;
+    height: auto;
+    background: var(--azul-claro-fundo); 
+    border: 1px solid var(--azul-claro-borda); 
+    box-shadow: 0 8px 10px rgba(0, 0, 0, 0.2);
+    border-radius: 10px;
+}
+
+.card {
+    background: var(--branco);
+    border: 1px solid var(--cinza-claro); 
+    border-radius: 8px;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+    width:calc(33.333% - 16px);
+    padding: 16px;
+    box-sizing: border-box;
+    display: flex;
+    flex-direction: column;
+    text-align: center;
+}
+
+.card h2 {
+    margin: 0;
+    color: #333;
+}
+
+.card p {
+    margin: 8px 0;
+    color: #666;
+    text-align: center; 
+    font-size: 14px;
+
+}
