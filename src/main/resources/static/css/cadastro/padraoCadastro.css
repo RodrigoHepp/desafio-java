@@ -1,0 +1,109 @@
+.container-form {
+    background-color: var(--branco);
+    padding: 2em;
+    text-align: center;
+    display: flex;
+    flex-wrap: wrap;
+    width: 100%;
+    align-content: flex-start;
+    justify-content: center;
+}
+
+.container-form form {
+    display: flex;
+    flex-wrap: wrap;
+    width: 100%;
+}
+
+.container-form div {
+    width: 100%;
+}
+
+.container-form h1 {
+    margin-bottom: 1em;
+    color: var(--preto);
+    height: 50px;
+}
+
+.container-form label {
+    display: block;
+    margin-bottom: 0.5em;
+    color: var(--cinza-escuro);
+}
+
+.container-form input[type="date"],
+.container-form input[type="number"],
+.container-form select,
+.container-form input[type="text"] {
+    width: 400px;
+    padding: 0.5em;
+    margin-bottom: 0.5em;
+    border: 1px solid var(--cinza-margem);
+    border-radius: 5px;
+}
+
+.container-form div button[type="submit"],
+.container-form div button[type="reset"] {
+    background-color: var(--azul-escuro-padrao);
+    color: var(--branco);
+    border: none;
+    padding: 0.7em;
+    border-radius: 5px;
+    cursor: pointer;
+    width: 100px;
+}
+
+.container-form div button[type="submit"]:hover {
+    background-color: var(--buttons-hover);
+}
+
+.mensagem {
+    color: var(--vermelho);
+    margin-bottom: 1em;
+}
+
+.div-button {
+    width: 100%;
+}
+
+.div-error {
+    display: flex;
+    justify-content: center;
+}
+
+.message-error {
+    background-color: var(--vermelho-claro);
+    margin-bottom: 1em;
+    border: 1px solid var(--vermelho);
+    border-radius: 5px;
+    padding: 10px;
+    width: 400px;
+}
+
+.message-success {
+    background-color: var(--verde-claro);
+    margin-bottom: 1em;
+    border: 1px solid var(--verde);
+    border-radius: 5px;
+    padding: 10px;
+    width: 400px;
+}
+
+.text-error {
+    margin-bottom: 0.5em;
+    color: var(--vermelho);
+    font-size: 14px;
+}
+
+.show-message {
+    display: block;
+    padding: 10px;
+}
+
+.hide-message {
+    display: none;
+}
+
+#response-api {
+    margin-top: 10px;
+}
