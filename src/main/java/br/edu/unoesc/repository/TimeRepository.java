@@ -6,5 +6,4 @@ import br.edu.unoesc.model.Time;
 
 public interface TimeRepository extends JpaRepository<Time, Integer> {
 
-    
 }

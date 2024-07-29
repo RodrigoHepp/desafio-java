@@ -28,7 +28,7 @@ import br.edu.unoesc.service.TimeService;
 public class TimeController {
     @Autowired
     private TimeService timeService;
-        @Autowired
+    @Autowired
     private PessoaService pessoaService;
 
     @GetMapping("/cadastro")
@@ -67,13 +67,15 @@ public class TimeController {
         List<Time> times = timeService.getAllTimes();
         Map<String, Object> response = new HashMap<>();
         response.put("data", times);
-        return new ResponseEntity<>(response , HttpStatus.OK);
+        return new ResponseEntity<>(response, HttpStatus.OK);
     }
 
     @GetMapping("/editar/{id}")
     public String consultaDeTime(@PathVariable("id") Integer id, Model model) {
         Time time = timeService.getTimeById(id);
+
         model.addAttribute("time", time);
+
         return "/cadastro/timeCadastro";
     }
 
@@ -90,13 +92,12 @@ public class TimeController {
         }
     }
 
-    
     @GetMapping("/consultaPorID/{id}")
     public ResponseEntity<Map<String, Object>> listarTime(@PathVariable("id") Integer id) {
         Pessoa pessoa = pessoaService.getPessoaById(id);
         Time time = timeService.getTimeById(pessoa.getTime().getId());
         Map<String, Object> response = new HashMap<>();
         response.put("data", time);
-        return new ResponseEntity<>(response , HttpStatus.OK);
+        return new ResponseEntity<>(response, HttpStatus.OK);
     }
 }
