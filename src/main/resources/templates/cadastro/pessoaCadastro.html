@@ -1,0 +1,74 @@
+<!DOCTYPE html>
+<html xmlns:th="https://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <title>Cadastro de Pessoa</title>
+    <link rel="stylesheet" href="/css/pages/padrao.css">
+    <link rel="stylesheet" href="/css/cadastro/padraoCadastro.css">
+    <link rel="stylesheet" href="/css/pages/header.css">
+</head>
+<body>
+    <header th:insert="~{/pages/header :: header}"></header>
+    <main>
+        <div  class="container-form">
+            <h1>Cadastro de Pessoa</h1>
+            <form th:action="@{/pessoa/salvar}" th:object="${pessoa}" method="post" id="pessoaForm">
+                <div>
+                    <label for="Id">Id:</label>
+                    <input type="number" id="Id" th:field="*{Id}" placeholder="Id" readonly />
+                </div>
+                <div>
+                    <label for="nome">Nome:</label>
+                    <input type="text" id="nome" th:field="*{nome}" placeholder="Nome"  />
+                    <div class="hide-message" id="error-nome"></div>
+                </div>
+                <div>
+                    <label for="cpf">CPF:</label>
+                    <input type="text" id="cpf" th:field="*{cpf}" placeholder="cpf"/>
+                    <div class="hide-message" id="error-cpf"></div>
+                </div>
+                <div>
+                    <label for="dataNascimento">Data de Nascimento:</label>
+                    <input type="date" id="dataNascimento" th:field="*{dataNascimento}" placeholder="Data de Nascimento"/>
+                    <div class="hide-message" id="error-dataNascimento"></div>
+                </div>
+                <div>
+                    <label for="genero">Gênero:</label>
+                    <select id="genero" th:field="*{genero}">
+                        <option th:value="N">Selecione</option>
+                        <option th:value="M">Masculino</option>
+                        <option th:value="F">Feminino</option>
+                    </select>
+                    <div class="hide-message" id="error-genero"></div>
+                </div>
+                <div>
+                    <label for="telefone">Telefone:</label>
+                    <input type="text" id="telefone" th:field="*{telefone}" placeholder="Telefone"/>
+                    <div class="hide-message" id="error-telefone"></div>
+                </div>
+                <div>
+                    <label for="email">E-mail:</label>
+                    <input type="text" id="email" th:field="*{email}" placeholder="E-mail"/>
+                    <div class="hide-message" id="error-email"></div>
+                </div>
+                <div>
+                    <label for="time">Time:</label>
+                    <select id="time" th:field="*{time}">
+                        <option value="" disabled selected>Selecione um time</option>
+                        <option th:each="time : ${times}" th:value="${time.id}" th:text="${time.nome}"></option>
+                    </select>
+                    <div class="hide-message" id="error-time"></div>
+                </div>
+                <div class="div-button">
+                    <button type="submit">Salvar</button>
+                    <button type="reset">Limpar</button>
+                </div>
+            </form>
+            <div id="response-api" class="hide-message"></div>
+        </div>
+    </main>
+    <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery.mask/1.14.16/jquery.mask.min.js"></script>
+    <script src="/scripts/cadastro/pessoaCadastro.js"></script>
+</body>
+</html>

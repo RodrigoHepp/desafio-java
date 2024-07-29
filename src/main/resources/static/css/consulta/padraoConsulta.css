@@ -40,12 +40,12 @@
     border-color: var(--azul-escuro-padrao) !important;
 }
 
-#tableTimes_wrapper .dataTables_paginate .paginate_button.disabled:hover,
-#tableTimes_wrapper .dataTables_paginate .paginate_button.current:hover {
+.container-table .dataTables_wrapper .dataTables_paginate .paginate_button.disabled:hover,
+.container-table .dataTables_wrapper .dataTables_paginate .paginate_button.current:hover {
     color: var(--branco) !important;
 }
 
-#tableTimes_wrapper .dataTables_paginate .paginate_button:active {
+.container-table .dataTables_wrapper .dataTables_paginate .paginate_button:active {
     background: var(--buttons-hover) !important;
     color: var(--branco) !important;
     border-color: var(--buttons-hover) !important;
