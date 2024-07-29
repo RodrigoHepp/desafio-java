@@ -19,7 +19,6 @@ import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
 
 import com.fasterxml.jackson.core.JsonProcessingException;
-import com.fasterxml.jackson.databind.ObjectMapper;
 
 import br.edu.unoesc.model.Formacao;
 import br.edu.unoesc.model.Pessoa;
@@ -75,7 +74,6 @@ public class PessoaController {
         List<Pessoa> pessoas = pessoaService.getAllPessoas();
         Map<String, Object> response = new HashMap<>();
         response.put("data", pessoas);
-        System.out.println("Resposta JSON: " + new ObjectMapper().writeValueAsString(response));
         return new ResponseEntity<>(response, HttpStatus.OK);
     }
 
