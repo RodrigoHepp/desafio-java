@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html xmlns:th="https://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <title>Consulta de Pessoa</title>
+    <link rel="stylesheet" href="/css/pages/padrao.css">
+    <link rel="stylesheet" href="/css/consulta/padraoConsulta.css">
+    <link rel="stylesheet" href="/css/pages/header.css">
+    <link rel="stylesheet" href="https://cdn.datatables.net/1.11.5/css/jquery.dataTables.min.css">
+</head>
+<body>
+    <header th:insert="~{/pages/header :: header}"></header>
+    <main>
+        <div class="container-table">
+            <h1>Consulta de Pessoas</h1>
+            <button class="button-consulta" type="button" id="excluir" disabled>Excluir</button>
+            <button class="button-consulta" type="button" id="editar" disabled>Editar</button>
+            <table id="tablePessoas" class="display" style="width: 100%">
+                <thead>
+                  <tr>
+                    <th>ID</th>
+                    <th>Nome</th>
+                    <th>CPF</th>
+                    <th>Data de Nascimento</th>
+                    <th>Gênero</th>
+                    <th>Telefone</th>
+                    <th>E-mail</th>
+                    <th>Time</th>
+                  </tr>
+                </thead>
+                <tbody>
+                  <tr th:each="pessoa : ${pessoas}">
+                    <td th:text="${pessoa.id}"></td>
+                    <td th:text="${pessoa.nome}"></td>
+                    <td th:text="${pessoa.cpf}"></td>
+                    <td th:text="${#dates.format(pessoa.dataNascimento, 'dd/MM/yyyy')}"></td>
+                    <td th:text="${pessoa.genero}"></td>
+                    <td th:text="${pessoa.telefone}"></td>
+                    <td th:text="${pessoa.email}"></td>
+                    <td th:text="${pessoa.time}"></td>
+                  </tr>
+                </tbody>
+              </table>
+        </div>
+    </main>
+    <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+    <script src="https://cdn.datatables.net/1.11.5/js/jquery.dataTables.min.js"></script>
+    <script src="/scripts/consulta/pessoaConsulta.js"></script>
+</body>
+</html>

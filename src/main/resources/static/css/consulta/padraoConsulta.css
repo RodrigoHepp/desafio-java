@@ -1,0 +1,52 @@
+.container-table {
+    background-color: var(--branco);
+    padding: 2em;
+    width: 100%;
+    align-content: flex-start;
+    justify-content: center;
+}
+
+.container-table h1 {
+    margin-bottom: 1em;
+    color: var(--preto);
+    height: 50px;
+}
+
+
+.button-consulta {
+    background-color: var(--azul-escuro-padrao);
+    color: var(--branco);
+    border: none;
+    padding: 0.7em;
+    border-radius: 5px;
+    cursor: pointer;
+    width: 100px;
+}
+
+.button-consulta:disabled {
+    background-color: var(--buttons-disable);
+    border: none; 
+    cursor: not-allowed; 
+}
+
+.button-consulta:hover {
+    background-color: var(--buttons-hover);
+    color: var(--branco);
+}
+
+.paginate_button:hover {
+    background: var(--azul-escuro-padrao) !important;
+    color: var(--branco) !important;
+    border-color: var(--azul-escuro-padrao) !important;
+}
+
+.container-table .dataTables_wrapper .dataTables_paginate .paginate_button.disabled:hover,
+.container-table .dataTables_wrapper .dataTables_paginate .paginate_button.current:hover {
+    color: var(--branco) !important;
+}
+
+.container-table .dataTables_wrapper .dataTables_paginate .paginate_button:active {
+    background: var(--buttons-hover) !important;
+    color: var(--branco) !important;
+    border-color: var(--buttons-hover) !important;
+}

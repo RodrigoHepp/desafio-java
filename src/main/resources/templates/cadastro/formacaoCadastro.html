@@ -1,0 +1,67 @@
+<!DOCTYPE html>
+<html xmlns:th="https://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <title>Cadastro de Formação</title>
+    <link rel="stylesheet" href="/css/pages/padrao.css">
+    <link rel="stylesheet" href="/css/cadastro/padraoCadastro.css">
+    <link rel="stylesheet" href="/css/pages/header.css">
+</head>
+<body>
+    <header th:insert="~{/pages/header :: header}"></header>
+    <main>
+        <div class="container-form">
+            <h1>Cadastro de Formação</h1>
+            <form th:action="@{/formacao/salvar}" th:object="${formacao}" method="post" id="formacaoForm">
+                <div>
+                    <label for="id">Id:</label>
+                    <input type="number" id="id" th:field="*{id}" placeholder="Id" readonly />
+                </div>
+                <div>
+                    <label for="nomeCurso">Nome do Curso:</label>
+                    <input type="text" id="nomeCurso" th:field="*{nomeCurso}" placeholder="Nome do Curso" />
+                    <div class="hide-message" id="error-nomeCurso"></div>
+                </div>
+                <div>
+                    <label for="nivelCurso">Nível do curso:</label>
+                    <select id="nivelCurso" th:field="*{nivelCurso}">
+                        <option th:value="0">Selecione</option>
+                        <option th:value="1">Ensino Médio</option>
+                        <option th:value="2">Técnico</option>
+                        <option th:value="3">Bacharelado</option>
+                        <option th:value="4">Especialização</option>
+                        <option th:value="5">Mestrado</option>
+                        <option th:value="6">Doutorado</option>
+                    </select>
+                    <div class="hide-message" id="error-nivelCurso"></div>
+                </div>
+                <div>
+                    <label for="dataConclusao">Data de Conclusão:</label>
+                    <input type="date" id="dataConclusao" th:field="*{dataConclusao}" placeholder="Data de Conclusão" />
+                    <div class="hide-message" id="error-dataConclusao"></div>
+                </div>
+                <div>
+                    <label for="nomeInstituicao">Nome da Instituição:</label>
+                    <input type="text" id="nomeInstituicao" th:field="*{nomeInstituicao}" placeholder="Nome da Instituição" />
+                    <div class="hide-message" id="error-nomeInstituicao"></div>
+                </div>
+                <div>
+                    <label for="pessoa">Pessoa:</label>
+                    <select id="pessoa" th:field="*{pessoa}">
+                        <option value="" disabled selected>Selecione uma pessoa</option>
+                        <option th:each="pessoa : ${pessoas}" th:value="${pessoa.id}" th:text="${pessoa.nome}"></option>
+                    </select>
+                    <div class="hide-message" id="error-pessoa"></div>
+                </div>
+                <div class="div-button">
+                    <button type="submit">Salvar</button>
+                    <button type="reset">Limpar</button>
+                </div>
+            </form>
+            <div id="response-api" class="hide-message"></div>
+        </div>
+    </main>
+    <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+    <script src="/scripts/cadastro/formacaoCadastro.js"></script>
+</body>
+</html>

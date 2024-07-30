@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html xmlns:th="https://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <title>Cadastro de Time</title>
+    <link rel="stylesheet" href="/css/pages/padrao.css">
+    <link rel="stylesheet" href="/css/cadastro/padraoCadastro.css">
+    <link rel="stylesheet" href="/css/pages/header.css">
+</head>
+<body>
+    <header th:insert="~{/pages/header :: header}"></header>
+    <main>
+        <div  class="container-form">
+            <h1>Cadastro de Time</h1>
+            <form th:action="@{/time/salvar}" th:object="${time}" method="post" id="timeForm">
+                <div>
+                    <label for="Id">Id:</label>
+                    <input type="number" id="Id" th:field="*{Id}" placeholder="Id" readonly />
+                </div>
+                <div>
+                    <label for="nome">Nome:</label>
+                    <input type="text" id="nome" th:field="*{nome}" placeholder="Nome do time"  />
+                    <div class="hide-message" id="error-nome"></div>
+                </div>
+                <div>
+                    <label for="setor">Setor:</label>
+                    <input type="text" id="setor" th:field="*{setor}" placeholder="Setor do time"/>
+                    <div class="hide-message" id="error-setor"></div>
+                </div>
+                <div class="div-button">
+                    <button type="submit">Salvar</button>
+                    <button type="reset">Limpar</button>
+                </div>
+            </form>
+            <div id="response-api" class="hide-message"></div>
+        </div>
+    </main>
+    <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+    <script src="/scripts/cadastro/timeCadastro.js"></script>
+</body>
+</html>
