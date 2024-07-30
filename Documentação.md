@@ -1,6 +1,7 @@
 # Iniciando a Aplicação
 
 Para inicializar a aplicação, basta clonar o repositório e a IDE fará a importação das dependências, etc. Em seguida, acesse qualquer URL do localhost, por exemplo: `http://localhost:8080/home`. Você será redirecionado para a tela de login.
+Obs: o arquivo.properties onde está a configuração para criar tabelas está como none, bem como as credencias e local do banco de dados estão utilizando variáveis de ambiente as quais terão de ser configuradas
 
 Na tela de login, basta digitar o usuário (`unoesc`) e a senha (`unoesc@123`) e clicar em entrar. As credenciais estão salvas em memória na aplicação. Você será redirecionado para a tela inicial.
 
