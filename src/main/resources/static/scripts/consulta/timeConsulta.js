@@ -1,6 +1,9 @@
 let table;
 
 $(document).ready(function () {
+    $(window).on('load', function() {
+        $('#loadingOverlay').fadeOut();
+    });
     if (table) {
         table.clear().draw();
         table.rows.add(data).draw();
@@ -72,11 +75,13 @@ $("#tableTimes tbody").on('click', 'tr', function () {
         $(this).removeClass('selected background__selected');
         $('#excluir').prop('disabled', true);
         $('#editar').prop('disabled', true);
+        $('#mural').prop('disabled', true);
     } else {
         $('#tableTimes tbody tr.selected').removeClass('selected background__selected');
         $(this).addClass('selected background__selected');
         $('#excluir').prop('disabled', false);
         $('#editar').prop('disabled', false);
+        $('#mural').prop('disabled', false);
     }
 });
 
@@ -92,6 +97,17 @@ $("#editar").on('click', function () {
         alert('Por favor, selecione um registro para editar.');
     }
 });
+
+$("#mural").on('click', function () {
+    
+    if (getId()) {
+        window.location.href = '/mural/exibir/' + getId();
+        $('#loadingOverlay').fadeIn();
+    } else {
+        alert('Por favor, selecione um registro.');
+    }
+});
+
 
 
 $("#excluir").on('click', function () {

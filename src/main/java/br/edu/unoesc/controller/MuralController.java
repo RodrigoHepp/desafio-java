@@ -11,28 +11,27 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.GetMapping;
+import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.RequestMapping;
-import org.springframework.web.client.RestTemplate;
 
-import com.fasterxml.jackson.databind.JsonNode;
 import com.fasterxml.jackson.databind.ObjectMapper;
 
 import br.edu.unoesc.dto.PessoaFatoDTO;
 import br.edu.unoesc.model.Pessoa;
-import br.edu.unoesc.service.PessoaService;
+import br.edu.unoesc.service.TimeService;
 
 @Controller
 @RequestMapping("/mural")
 public class MuralController {
 
     @Autowired
-    private PessoaService pessoaService;
+    private TimeService timeService;
 
     private final String urlApi = "https://uselessfacts.jsph.pl/api/v2/facts/random?Accept=application/json";
 
-    @GetMapping("/exibir")
-    public String mostrarMural(Model model) {
-        List<Pessoa> pessoas = pessoaService.getAllPessoas();
+    @GetMapping("/exibir/{id}")
+    public String mostrarMural(@PathVariable("id") Integer id, Model model) {
+        List<Pessoa> pessoas = timeService.getTimeById(id).getPessoas();
         List<PessoaFatoDTO> fatos = new ArrayList<>();
         pessoas.forEach(p -> {
             try {
